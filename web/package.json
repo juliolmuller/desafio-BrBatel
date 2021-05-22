@@ -1,0 +1,30 @@
+{
+  "name": "@desafio-brbatel/web",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": "Julio L. Muller",
+  "scripts": {
+    "postinstall": "node -e \"process.env.NODE_ENV === 'production' || require('fs').existsSync('.env') || require('fs').copyFileSync('.env.example', '.env')\"",
+    "dev": "next dev --port 8080",
+    "development": "npm run dev",
+    "build": "next build",
+    "prod": "next start --port 8080",
+    "production": "npm run prod",
+    "lint": "eslint src/ --fix"
+  },
+  "dependencies": {
+    "axios": "~0.21.1",
+    "next": "^10.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "@types/react": "^17.0.6",
+    "eslint": "^7.27.0",
+    "eslint-config-lacussoft": "^2.0.1",
+    "sass": "^1.33.0",
+    "typescript": "^4.2.4"
+  }
+}
