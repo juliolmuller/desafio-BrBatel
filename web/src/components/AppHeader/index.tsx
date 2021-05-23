@@ -1,10 +1,14 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import SearchInput from './SearchInput'
+import Image from 'next/image'
 import UserMenu from './UserMenu'
+import SearchInput from './SearchInput'
 import styles from './styles.module.scss'
 
-function AppHeader() {
+interface AppHeaderProps {
+  searchBox?: boolean
+}
+
+function AppHeader({ searchBox = true }: AppHeaderProps) {
   return (
     <header className={styles.headerWrapper}>
       <Link href="/"><a>
@@ -18,7 +22,10 @@ function AppHeader() {
         />
       </a></Link>
 
-      <SearchInput />
+      {searchBox && (
+        <SearchInput />
+      )}
+
       <UserMenu />
     </header>
   )
