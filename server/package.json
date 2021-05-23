@@ -6,6 +6,12 @@
   "author": "Julio L. Muller",
   "scripts": {
     "postinstall": "node -e \"process.env.NODE_ENV === 'production' || require('fs').existsSync('.env') || require('fs').copyFileSync('.env.example', '.env')\"",
+    "typeorm": "tsnd ../node_modules/typeorm/cli.js",
+    "seed": "tsnd src/database/seeds/",
+    "migrate": "npm run typeorm -- migration:run",
+    "migrate:seed": "npm run migrate && npm run seed",
+    "migrate:reset": "npm run typeorm -- schema:drop && npm run migrate",
+    "migrate:reset:seed": "npm run migrate:reset && npm run seed",
     "dev": "tsnd src/ --clear --respawn --transpile-only --ignore node_modules",
     "development": "npm run dev",
     "build": "rm -rf build/ && tsc -p",
@@ -21,6 +27,7 @@
     "http-status-codes": "^2.1.4",
     "morgan": "^1.10.0",
     "pg": "^8.6.0",
+    "reflect-metadata": "~0.1.13",
     "typeorm": "~0.2.32"
   },
   "devDependencies": {
