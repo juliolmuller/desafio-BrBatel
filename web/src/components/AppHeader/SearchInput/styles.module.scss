@@ -20,8 +20,10 @@
 
   transition: background-color 250ms;
   transition: border-color 400ms;
+  transition: box-shadow 150ms;
 
   &:focus-within {
+    box-shadow: var(--shadow-heavy);
     border-color: var(--color-br-green);
     background: var(--color-white);
 
