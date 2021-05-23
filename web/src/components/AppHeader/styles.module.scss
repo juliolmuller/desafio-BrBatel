@@ -11,7 +11,7 @@
   background: var(--color-white);
   padding: 0 2rem;
 
-  img {
+  & > a img {
     height: 3rem;
   }
 }
