@@ -23,7 +23,7 @@
   transition: box-shadow 150ms;
 
   &:focus-within {
-    box-shadow: var(--shadow-heavy);
+    box-shadow: var(--shadow-moderate);
     border-color: var(--color-br-green);
     background: var(--color-white);
 
