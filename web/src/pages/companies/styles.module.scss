@@ -1,0 +1,93 @@
+
+.pageWrapper {
+  max-width: 1080px;
+  margin: 2.5rem auto;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 1.5rem 2rem;
+
+    h1 {
+      color: var(--color-br-green);
+      font: 600 3.6rem Rajdhani, Inter, sans-serif;
+      letter-spacing: 0.15rem;
+    }
+
+    .indexControls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+
+      .displayOptions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          outline: none;
+          border: 1px solid var(--color-gray-dark);
+          border-radius: var(--border-radius);
+          background: var(--color-gray-light);
+          padding: 0.4rem;
+
+          color: var(--color-gray-darker);
+          font-size: 1.2rem;
+          font-weight: 500;
+
+          transition: color 200ms;
+
+          &:hover {
+            color: #222;
+          }
+
+          &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+
+          &:last-child {
+            position: relative;
+            left: -1px;
+
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+
+        outline: none;
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--color-br-golden);
+        padding: 0.4rem 0.75rem;
+
+        color: var(--color-white);
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-decoration: none;
+
+        transition: filter 200ms;
+
+        &:hover {
+          filter: brightness(0.92);
+        }
+
+        span {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
