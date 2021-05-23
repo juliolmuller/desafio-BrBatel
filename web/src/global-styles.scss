@@ -1,7 +1,21 @@
 
 :root {
+  --color-br-golden: rgb(208, 178, 126);
+  --color-br-green: rgb(0, 71, 81);
+  --color-text-base: #555;
   --color-background: #f0f0f7;
-  --color-text-base: #666;
+  --color-gray-darker: #494D4B;
+  --color-gray-dark: #808080;
+  --color-gray: #AFB2B1;
+  --color-gray-light: #E6E8EB;
+  --color-gray-lighter: #F7F8FA;
+  --color-white: #fff;
+
+  --shadow-light: 18px 28px 42px rgba(23, 142, 166, 0.15);
+  --shadow-moderate: 18px 28px 42px rgba(25, 120, 139, 0.25);
+  --shadow-string: 18px 28px 42px rgba(0, 71, 81, 0.35);
+
+  --border-radius: 0.5rem;
 }
 
 * {
@@ -27,12 +41,6 @@ body, input, textarea, button {
 
 a, button {
   cursor: pointer;
-}
-
-#__next {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @media (max-width: 1080px) {

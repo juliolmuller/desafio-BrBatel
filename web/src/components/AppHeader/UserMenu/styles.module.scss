@@ -1,0 +1,33 @@
+
+.menuWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--border-radius);
+  padding: 0.25rem 0.75rem;
+
+  cursor: pointer;
+  transition: background-color 200ms;
+
+  &:hover {
+    background-color: var(--color-background);
+  }
+
+  & > img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  & > span {
+    margin-left: 1rem;
+
+    color: var(--color-br-green);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
