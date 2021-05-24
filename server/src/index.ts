@@ -1,5 +1,4 @@
-import 'dotenv/config'
-import 'express-async-errors'
+import './config'
 import app from './app'
 
 app.listen(process.env.PORT, () => {
