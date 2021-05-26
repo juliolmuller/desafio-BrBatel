@@ -22,7 +22,6 @@ export class CreateCompaniesTable1621797226082 implements MigrationInterface {
         {
           name: 'cnpj',
           type: 'char(14)',
-          isUnique: true,
         },
         {
           name: 'demand',

@@ -19,7 +19,7 @@ class Company {
   @Column()
   public name: string
 
-  @Column({ unique: true })
+  @Column()
   public cnpj: string
 
   @Column()
