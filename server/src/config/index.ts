@@ -14,7 +14,7 @@ import 'express-async-errors'
  * Stablish connection to database using TypeORM.
  */
 import 'reflect-metadata'
-import './database/connection'
+import '../database/connection'
 
 
 /**

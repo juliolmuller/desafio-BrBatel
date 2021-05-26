@@ -12,10 +12,10 @@
     "migrate:seed": "npm run migrate && npm run seed",
     "migrate:reset": "npm run typeorm -- schema:drop && npm run migrate",
     "migrate:reset:seed": "npm run migrate:reset && npm run seed",
-    "dev": "tsnd src/ --clear --respawn --transpile-only --ignore node_modules",
+    "dev": "tsnd src/server.ts --clear --respawn --transpile-only --ignore node_modules",
     "development": "npm run dev",
     "build": "rm -rf build/ && tsc -p",
-    "prod": "node build/",
+    "prod": "node build/server.js",
     "production": "npm run prod",
     "lint": "eslint src/ --fix"
   },

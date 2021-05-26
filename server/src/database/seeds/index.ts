@@ -1,12 +1,6 @@
 import '../../config'
-import faker from 'faker'
 import { createConnection } from 'typeorm'
-import generateCompany from './company.seeder'
-
-/**
- * COnfigure Faker.js to use "pt_BR" localization preferentially.
- */
-faker.locale = 'pt_BR'
+import generateCompany from './companySeeder'
 
 /**
  * Execute all entities seeders
