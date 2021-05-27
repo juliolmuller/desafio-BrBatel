@@ -32,7 +32,7 @@ class Company {
   @Column()
   public demand: number
 
-  @Column()
+  @Column({ type: 'varchar' })
   public annual_income: typeof Company.ANNUAL_INCOME_OPTIONS[number]
 
   @Column()
