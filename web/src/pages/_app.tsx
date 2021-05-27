@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import Header from '@/components/AppHeader'
+import { CompanyProvider } from '@/contexts'
 import '@/global-styles.scss'
 
 function App({ Component, pageProps }) {
@@ -8,13 +9,15 @@ function App({ Component, pageProps }) {
     '/companies/[id]',
   ].includes(route)
 
-  return <>
-    <Header searchBox={!hideSearchBox} />
+  return (
+    <CompanyProvider>
+      <Header searchBox={!hideSearchBox} />
 
-    <main>
-      <Component {...pageProps} />
-    </main>
-  </>
+      <main>
+        <Component {...pageProps} />
+      </main>
+    </CompanyProvider>
+  )
 }
 
 export default App
