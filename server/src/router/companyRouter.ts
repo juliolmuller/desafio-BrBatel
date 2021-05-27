@@ -1,8 +1,10 @@
 import { Router } from 'express'
-import { CompanyController } from '../app/http/controllers'
+import { CompanyController } from '@/app/http/controllers'
+import { CompanyFormRequest } from '@/app/http/requests'
 
 const router = Router()
 const controller = new CompanyController()
+const formRequest = new CompanyFormRequest()
 const baseURI = '/api/companies'
 
 export const routes = {
@@ -15,8 +17,8 @@ export const routes = {
 
 router.get(routes.index, controller.index)
 router.get(routes.show, controller.show)
-router.post(routes.store, controller.store)
-router.patch(routes.update, controller.update)
+router.post(routes.store, formRequest.on('create'), controller.store)
+router.patch(routes.update, formRequest.on('update'), controller.update)
 router.delete(routes.destroy, controller.destroy)
 
 export default router
