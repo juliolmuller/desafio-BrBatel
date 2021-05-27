@@ -1,7 +1,7 @@
 import { getRepository, ILike } from 'typeorm'
 import { StatusCodes } from 'http-status-codes'
-import { CompanyResource } from '../resources'
-import { Company } from '../../models'
+import { CompanyResource } from '@/app/http/resources'
+import { Company } from '@/app/models'
 
 import type { Request, Response } from 'express'
 import type { DeepPartial } from 'typeorm'
@@ -82,10 +82,10 @@ class CompanyController {
    * => esperado parâmetro "/:id" no endpoint
    */
   public update = async (request: Request, response: Response) => {
+    const companyDataRaw = request.body as DeepPartial<Company>
     const companyId = Number(request.params.id)
     const companyRepository = getRepository(Company)
     const company = await companyRepository.findOneOrFail(companyId)
-    const companyDataRaw = request.body as DeepPartial<Company>
 
     Object.assign(company, companyDataRaw)
     await companyRepository.save(company)

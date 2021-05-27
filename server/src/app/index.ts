@@ -1,7 +1,7 @@
 import cors from 'cors'
 import morgan from 'morgan'
 import express from 'express'
-import { companyRouter } from '../router'
+import { companyRouter } from '@/router'
 import errorHandler from './errors/handler'
 
 const app = express()

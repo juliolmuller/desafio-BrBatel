@@ -1,9 +1,9 @@
 import BaseResource from './Resource'
-import { companyRoutes } from '../../../router'
-import { cnpjUtils } from '../../../utils'
+import { companyRoutes } from '@/router'
+import { cnpjUtils } from '@/utils'
 
 import type { PaginationMeta } from './Resource'
-import type { Company } from '../../models'
+import type { Company } from '@/app/models'
 
 export type CompanyJsonResource = Company & {
   links: unknown

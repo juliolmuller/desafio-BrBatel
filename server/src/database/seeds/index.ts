@@ -1,4 +1,4 @@
-import '../../config'
+import '@/config'
 import { createConnection } from 'typeorm'
 import generateCompany from './companySeeder'
 

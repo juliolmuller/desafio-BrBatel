@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
-import { Company as CompanyModel } from '../../app/models'
+import { Company as CompanyModel } from '@/app/models'
 
 export class CreateCompaniesTable1621797226082 implements MigrationInterface {
   public async up(queryRunner: QueryRunner) {

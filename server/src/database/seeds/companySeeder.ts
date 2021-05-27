@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm'
-import { Company } from '../../app/models'
-import { cnpjUtils, faker } from '../../utils'
+import { cnpjUtils, faker } from '@/utils'
+import { Company } from '@/app/models'
 
 async function generateCompany(count = 1) {
   if (count < 1) {
