@@ -3,6 +3,10 @@
     "target": "es2018",
     "module": "commonjs",
     "outDir": "build/",
+    "baseUrl": "src/",
+    "paths": {
+      "@/*": ["*"]
+    },
 
     "allowJs": true,
     "esModuleInterop": true,
@@ -15,6 +19,9 @@
     "emitDecoratorMetadata": true
   },
   "include": [
-    "src/"
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/"
   ]
 }
