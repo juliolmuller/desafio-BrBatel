@@ -5,8 +5,8 @@ import '@/global-styles.scss'
 
 function App({ Component, pageProps }) {
   const { route } = useRouter()
-  const hideSearchBox = [
-    '/companies/[id]',
+  const hideSearchBox = ![
+    '/companies',
   ].includes(route)
 
   return (
