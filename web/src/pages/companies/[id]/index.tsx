@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import DocumentHead from 'next/head'
 import { MdArrowBack, MdDelete, MdEdit } from 'react-icons/md'
+import { useRouter } from 'next/router'
+import { useToast } from '@/hooks'
 import { http } from '@/services'
 import { numUtils } from '@/utils'
 import styles from './styles.module.scss'
@@ -16,11 +17,18 @@ type CompanyDetailsPageProps = {
 
 function CompanyDetailsPage({ company }: CompanyDetailsPageProps) {
   const router = useRouter()
+  const toast = useToast()
 
   async function handleCompanyDelete() {
     if (confirm(`Tem certeza de que quer excluir os registros de ${company.name}?`)) {
-      await http.delete(`/companies/${company.id}`)
-      router.replace('/companies')
+      try {
+        await http.delete(`/companies/${company.id}`)
+        toast.success('Registro excluído com sucesso.')
+        router.replace('/companies')
+      } catch (error) {
+        toast.error(error.message)
+        console.error(error)
+      }
     }
   }
 

@@ -66,6 +66,16 @@ h4 {
   font-size: 1.4rem;
 }
 
+.react-toast-notifications__container {
+  margin-top: 5rem;
+}
+
+.react-toast-notifications__toast
+.react-toast-notifications__toast__content {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+}
+
 @media (max-width: 1080px) {
   html {
     font-size: 93.75%;

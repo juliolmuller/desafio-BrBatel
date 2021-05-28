@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
-import Header from '@/components/AppHeader'
+import { ToastProvider } from 'react-toast-notifications'
 import { CompanyProvider } from '@/contexts'
+import Header from '@/components/AppHeader'
 import '@/global-styles.scss'
 
 function App({ Component, pageProps }) {
@@ -10,13 +11,15 @@ function App({ Component, pageProps }) {
   ].includes(route)
 
   return (
-    <CompanyProvider>
-      <Header searchBox={!hideSearchBox} />
+    <ToastProvider>
+      <CompanyProvider>
+        <Header searchBox={!hideSearchBox} />
 
-      <main>
-        <Component {...pageProps} />
-      </main>
-    </CompanyProvider>
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </CompanyProvider>
+    </ToastProvider>
   )
 }
 

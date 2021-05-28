@@ -1,8 +1,10 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { useRouter } from 'next/router'
-import { MdSave } from 'react-icons/md'
+import { Formik, Form, Field } from 'formik'
 import { CnpjField, CurrencyField } from './maskedInput'
+import { MdSave } from 'react-icons/md'
+import { useRouter } from 'next/router'
+import { useToast } from '@/hooks'
 import { numUtils } from '@/utils'
+import { http } from '@/services'
 import { ANNUAL_INCOME_OPTIONS } from '@/types'
 import styles from './styles.module.scss'
 
@@ -14,6 +16,7 @@ type CompanyFormProps = {
 
 function CompanyForm({ initialState }: CompanyFormProps) {
   const router = useRouter()
+  const toast = useToast()
 
   const isEditing = Boolean(initialState)
   const defaultValues: CompanyFormData = {
@@ -26,11 +29,22 @@ function CompanyForm({ initialState }: CompanyFormProps) {
       : '',
   }
 
-  function handleSubmit(formData: CompanyFormData) {
-    setTimeout(() => {
-      console.log(formData)
+  async function handleSubmit(formData: CompanyFormData) {
+    try {
+      const httpMethod = isEditing ? 'patch' : 'post'
+      const uri = `/companies${isEditing ? `/${initialState.id}` : ''}`
+      const successMessage = isEditing
+        ? 'Atualizado realizada com sucesso.'
+        : 'Cadastro realizado com sucesso.'
+
+      await http[httpMethod](uri, formData)
+      toast.success(successMessage)
       router.replace('/companies')
-    }, 1000)
+    } catch (error) {
+      Object.values(error.response.data.errors ?? {}).forEach((err) => {
+        toast.error(err)
+      })
+    }
   }
 
   return (
@@ -44,12 +58,10 @@ function CompanyForm({ initialState }: CompanyFormProps) {
             <div className={styles.formGroup}>
               <label htmlFor="">Razão Social:</label>
               <Field type="text" name="name" autoFocus />
-              <ErrorMessage name="name" component="div" />
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="">Cadastro Nacional de Pessoa Jurídica (CNPJ):</label>
               <CnpjField name="cnpj" />
-              <ErrorMessage name="cnpj" component="div" />
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="">Faturamento anual:</label>
@@ -59,17 +71,14 @@ function CompanyForm({ initialState }: CompanyFormProps) {
                   <option key={range} value={range}>{range}</option>
                 ))}
               </Field>
-              <ErrorMessage name="annual_income" component="div" />
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="">Sobre a Empresa:</label>
               <Field as="textarea" name="about" rows="5" />
-              <ErrorMessage name="about" component="div" />
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="">Demanda:</label>
               <CurrencyField name="demand" />
-              <ErrorMessage name="demand" component="div" />
             </div>
 
             <button type="submit" disabled={isSubmitting}>
