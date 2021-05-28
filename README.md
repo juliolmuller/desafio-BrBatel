@@ -2,78 +2,44 @@
   <img src="./.github/logo-brbatel.png" width="280" alt="BrBatel" />
 </h1>
 
-**Desafio Full-Stack** - Você foi designado para acrescentar uma nova *feature* na plataforma da BrBatel. Nesta atividade deve ser adicionado uma nova visualização do sistema para acesso de um determinado tipo de usuário.
+<p align="center">
+  <img src=".github/app-overview.png" alt="Application Overview" width="100%">
+</p>
 
-Esta tela deverá ser composta por:
+# Desafio Full-Stack
 
-1. Header: Barra superior contendo a logo (lado esquerdo), um campo de pesquisa (centro) e as informações do usuário logado (lado direito).
-2. Body:
-   1. Campo contendo o título do body, chamado "Empresas"
-   2. Botão para adicionar uma nova empresa.
-   3. Lista de cards com as informações das empresas cadastradas no sistema e, ao clicar no card, deve ser aberto uma visualização detalhada das informações da empresa.
+Essa aplicação foi desenvolvida como parte de um teste técnico para a vaga de Desenvolvedor Full Stack, com base [nestes requisitos](https://www.notion.so/BrBatel-Desafio-Full-Stack-f3368f5048c341a4967a82f009daf388).
 
-## Protótipo
+Objetivos requisitados e cumpridos:
 
-O protótipo serve apenas como guia para o entendimento da necessidade, porém, ao implementar a aplicação, deve ser utilizado as cores e logo da BrBatel e estilizações conforme achar necessário. Na dúvida, mantenha algo simples e minimalista.
+- [x] Cabeçalho com logo, dados do usuário e campo para pesquisa;
+- [x] Tela para listar empresas em formato de grade/cards;
+- [x] Tela para visualizar dados de uma empresa;
+- [x] Tela para editar dados de uma empresa existente;
+- [x] Tela para cadastrar nova empresa;
+- [x] Recurso para excluir um registro;
+- [x] API RESTful para operações de CRUD;
 
-![protótipo](./.github/mock.png)
+E, por conta de tempo, apenas um dos objetivos opcionais propostos foi atendido:
+- [x] Alternar visualização do índice de empresas entre cards e lista;
+- [ ] Implementar autenticação de usuário;
 
-## Informações da Empresa
+OBS: Optei por desenvolver o frontend com o framework Next, para ampliar o poder do React com SSR (Server-Side Rendering) e SSG (Static Site Generation).
 
-- Nome
-- CNPJ: com a seguinte máscara XX.XXX.XXX/XXXX-XX.
-- Demanda (R$): valor monetário, com a seguinte máscara Ex.: R$ 10.000.000,00.
-- Faturamento Anual (dropdown):
-  - Até R$ 10 milhões;
-  - De R$ 10 a R$ 50 milhões;
-  - De R$ 50 a R$ 200 milhões;
-  - De R$ 200 a R$ 500 milhões;
-  - Acima de R$ 500 milhões.
-- Sobre: campo livre.
+## :hammer: Configurando o Ambiente
 
-## Cores
+Para executar a aplicação, é necessário ter instalado na máquina o **Node v14**, **NPM v7** (ou **Yarn**) e uma versão do **PostgreSQL**. Apbra o projeto em um terminal de linha de comando e, na raíz do projeto, execute `npm install` ou `yarn`. O projeto utiliza *workspaces*, então **NPM v6** não vai instalar as dependências corretamente. Em seguida, configure as aplicações `server` e `web`:
 
-![protótipo](./.github/color-palette.png)
+### Backend:
 
-## Objetivos Principais
+1. Acesse a pasta com `cd server/`.
+2. Atualize as variáveis de ambiente no arquivo `.env`  para refletir o seu ambiente e os dados para conexão com banco de dados.
+3. Tenha certeza que você criou o database informado na variável de ambiente `TYPEORM_DATABASE`, caso contrário o servidor não vai conseguir iniciar.
+4. Sincronize o banco de dados com o esquema de entidades através do comando `npm run db:sync:reset:seed`, que já populará as tabelas com dados para teste;
+5. Execute o servidor com o comando `npm run dev`
 
-### Back-End
-[ ] Estruturar o projeto para implementação de uma API Rest.
-[ ] Criar rotas de cadastro, atualização e exclusão da empresa.
-[ ] Criar rota para listar as empresas e essa rota deve comportar pesquisa e paginação.
-[ ] Criar rota para retornar a informação de uma empresa cadastrada baseado no ID dela (`/company/:id`).
+### Frontend:
 
-### Front-End
-[ ] Desenvolver os componentes necessários.
-[ ] Construir o layout da aplicação.
-[ ] Criar listagem em estrutura de cards
-[ ] Possibilitar a paginação e a pesquisa dessa listagem utilizando a API.
-[ ] Criar tela para o cadastro da empresa
-[ ] Possibilitar a visualização detalhada da empresa ao clicar no card.
-[ ] Utilizar a logo e cores da BrBatel (abaixo).
-
-## Objetivos Opcionais
-
-[ ] Adicionar autenticação na aplicação.
-[ ] Criar outra forma de visualizar as empresas, ao invés de "cards", fazer em tabela.
-
-## Tecnologias Obrigatórias
-
-- React com Typescript (componente com funções e hooks)
-- Node JS com Typescript (Express)
-- TypeORM
-- Postgresql
-- Git
-
-## Avaliação
-
-- Pontos não detalhados na descrição podem ser implementados no formato que você julgar mais adequado.
-- Na avaliação do projeto será considerado a qualidade e organização do código, a estrutura adotada, as escolhas de cores e estilizações aplicadas e o resultado final da aplicação rodando.
-- Não é preciso disponibilizar a aplicação ou o banco em nenhuma plataforma ou serviço, todo o processo de avaliação sera feito local.
-
-## Entrega
-
-- Você deve disponibilizar a resolução do seu projeto em um repositório **privado** do Github.
-- Adicionar o usuário murilodaluz como participante
-- Encaminhar um e-mail em resposta informando a conclusão.
-- Prazo para conclusão: **1 semana.**
+1. Acesse a pasta com `cd web/`.
+2. Certifique-se de que a variável de ambiente `NEXT_PUBLIC_API_URL` reflete a URL onde o servidor está sendo executado.
+3. Execute o servidor de desenvolvimento para a aplicação React/Next com `npm run dev`
