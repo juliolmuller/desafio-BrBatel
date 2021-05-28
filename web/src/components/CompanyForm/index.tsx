@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { useRouter } from 'next/router'
 import { MdSave } from 'react-icons/md'
+import { CnpjField } from './maskedInput'
 import { numUtils } from '@/utils'
 import { ANNUAL_INCOME_OPTIONS } from '@/types'
 import styles from './styles.module.scss'
@@ -47,7 +48,7 @@ function CompanyForm({ initialState }: CompanyFormProps) {
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="">Cadastro Nacional de Pessoa Jurídica (CNPJ):</label>
-              <Field type="text" name="cnpj" />
+              <CnpjField name="cnpj" />
               <ErrorMessage name="cnpj" component="div" />
             </div>
             <div className={styles.formGroup}>
