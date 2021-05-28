@@ -7,13 +7,14 @@ export const ANNUAL_INCOME_OPTIONS = [
   'Acima de R$500 milhões',
 ] as const
 
-export declare interface Company {
+export declare type Company = {
   readonly id?: number
   name: string
   cnpj: string
   demand: number
   annual_income: typeof ANNUAL_INCOME_OPTIONS[number]
   about?: string
+  image?: string
   readonly created_at?: Date
   readonly updated_at?: Date
   readonly deleted_at?: Date
