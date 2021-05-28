@@ -1,0 +1,47 @@
+
+.componentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 75vh;
+
+  .pagination {
+    display: flex;
+    align-items: center;
+
+    margin-top: auto;
+    padding: 2rem 2rem 6rem;
+
+    .spacer {
+      flex-grow: 1;
+
+      text-align: center;
+      color: var(--color-br-golden);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+
+      box-shadow: var(--shadow-moderate);
+      border: none;
+      border-radius: var(--border-radius);
+      background-color: var(--color-br-golden);
+      padding: 0.5rem 0.8rem;
+
+      color: var(--color-white);
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      transition: filter 200ms;
+
+      &:hover {
+        filter: brightness(0.92);
+      }
+    }
+  }
+}

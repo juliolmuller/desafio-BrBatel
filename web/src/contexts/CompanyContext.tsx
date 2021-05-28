@@ -8,6 +8,7 @@ type CompaniesIndexLayout = 'cards' | 'list'
 type CompaniesContextInterface = {
   isLoading: boolean
   companiesList: Company[]
+  paginationMeta: Pagination
   activeLayout: CompaniesIndexLayout
   setLayout: (layout: CompaniesIndexLayout) => void
   searchCompanies: (search: string) => void
@@ -23,7 +24,6 @@ export function CompanyProvider({ children }) {
   const [activeLayout, setLayout] = useState<CompaniesIndexLayout>('cards')
 
   const companiesList = paginationMeta?.data ?? []
-  console.log(companiesList)
 
   async function goToPage(page: number) {
     setLoading(true)
@@ -56,6 +56,7 @@ export function CompanyProvider({ children }) {
         companiesList,
         isLoading,
         activeLayout,
+        paginationMeta,
         searchCompanies,
         setLayout,
         goToPage,

@@ -1,9 +1,13 @@
-import { FaPlus, FaThLarge, FaThList } from 'react-icons/fa'
-import DocumentHead from 'next/head'
 import Link from 'next/link'
+import DocumentHead from 'next/head'
+import { FaPlus, FaThLarge, FaThList } from 'react-icons/fa'
+import CompaniesIndex from '@/components/CompaniesIndex'
+import { useCompanyContext } from '@/hooks'
 import styles from './styles.module.scss'
 
 function CompaniesPage() {
+  const { activeLayout, setLayout } = useCompanyContext()
+
   return (
     <section className={styles.pageWrapper}>
       <DocumentHead>
@@ -15,8 +19,16 @@ function CompaniesPage() {
 
         <div className={styles.indexControls}>
           <div className={styles.displayOptions}>
-            <button type="button"><FaThLarge /></button>
-            <button type="button"><FaThList /></button>
+            <button
+              type="button"
+              className={activeLayout === 'cards' ? styles.active : null}
+              onClick={() => setLayout('cards')}
+            ><FaThLarge /></button>
+            <button
+              type="button"
+              className={activeLayout === 'list' ? styles.active : null}
+              onClick={() => setLayout('list')}
+            ><FaThList /></button>
           </div>
 
           <Link href="/companies/new"><a>
@@ -26,7 +38,9 @@ function CompaniesPage() {
         </div>
       </header>
 
-      <main></main>
+      <main>
+        <CompaniesIndex />
+      </main>
     </section>
   )
 }
