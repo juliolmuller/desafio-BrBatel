@@ -20,6 +20,14 @@ export declare type Company = {
   // readonly deleted_at?: Date
 }
 
+export declare type CompanyFormData = {
+  annual_income: '' | typeof ANNUAL_INCOME_OPTIONS[number]
+  demand: string
+  about: string
+  name: string
+  cnpj: string
+}
+
 export declare type Pagination = {
   current_page: number
   total_items: number
