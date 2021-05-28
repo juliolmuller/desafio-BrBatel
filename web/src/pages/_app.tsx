@@ -11,7 +11,7 @@ function App({ Component, pageProps }) {
   ].includes(route)
 
   return (
-    <ToastProvider>
+    <ToastProvider placement="bottom-right">
       <CompanyProvider>
         <Header searchBox={!hideSearchBox} />
 
