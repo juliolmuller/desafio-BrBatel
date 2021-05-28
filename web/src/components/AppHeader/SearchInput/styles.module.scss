@@ -19,12 +19,14 @@
   color: var(--color-gray-dark);
 
   transition: background-color 250ms;
-  transition: border-color 400ms;
+  transition: border-width 200ms;
+  transition: border-color 300ms;
   transition: box-shadow 150ms;
 
   &:focus-within {
     box-shadow: var(--shadow-moderate);
-    border-color: var(--color-br-green);
+    border-color: var(--color-br-golden);
+    border-width: 3px;
     background: var(--color-white);
 
     color: var(--color-br-green);
