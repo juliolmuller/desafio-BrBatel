@@ -1,4 +1,21 @@
 
+.loading {
+  display: flex;
+  height: 50vh;
+
+  img {
+    margin: auto;
+    width: 18%;
+    object-fit: contain;
+  }
+}
+
+.notFound {
+  padding-top: 3rem;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
 .componentWrapper {
   display: flex;
   flex-direction: column;
