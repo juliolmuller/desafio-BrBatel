@@ -38,6 +38,9 @@ class Company {
   @Column()
   public about?: string
 
+  @Column({ default: 'dummy-logo-0.svg' })
+  public image: string
+
   @CreateDateColumn()
   public readonly created_at: Date
 

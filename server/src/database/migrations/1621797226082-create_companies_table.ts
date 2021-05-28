@@ -34,6 +34,11 @@ export class CreateCompaniesTable1621797226082 implements MigrationInterface {
           type: 'varchar',
         },
         {
+          name: 'image',
+          type: 'varchar',
+          default: 'dummy-logo-0.svg',
+        },
+        {
           name: 'about',
           type: 'text',
           isNullable: true,

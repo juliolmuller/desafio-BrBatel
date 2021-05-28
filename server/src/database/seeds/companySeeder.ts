@@ -13,6 +13,7 @@ async function generateCompany(count = 1) {
 
   iterations.forEach(() => {
     companies.push(companyRepository.create({
+      image: `dummy-logo-${Math.ceil(Math.random() * 23)}.svg`,
       about: faker.lorem.text().replace(/[\n\r][ ][[\n\r]/g, '\n'),
       demand: faker.datatype.number(1000) * 1000,
       cnpj: cnpjUtils.generate().replace(/\D/g, ''),

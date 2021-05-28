@@ -30,6 +30,7 @@ class CompanyResource extends BaseResource<Company> {
     return {
       ...entity,
       cnpj: cnpjUtils.format(entity.cnpj),
+      image: `${process.env.SERVER_ROOT}/images/${entity.image}`,
       links: {
         show: {
           method: 'get',
