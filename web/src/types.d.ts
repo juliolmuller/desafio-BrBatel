@@ -15,9 +15,9 @@ export declare type Company = {
   annual_income: typeof ANNUAL_INCOME_OPTIONS[number]
   about?: string
   image?: string
-  readonly created_at?: Date
-  readonly updated_at?: Date
-  readonly deleted_at?: Date
+  // readonly created_at?: Date
+  // readonly updated_at?: Date
+  // readonly deleted_at?: Date
 }
 
 export declare type Pagination = {

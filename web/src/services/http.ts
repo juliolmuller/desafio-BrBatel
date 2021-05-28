@@ -1,8 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars */
 import axios from 'axios'
 
 import type { AxiosTransformer } from 'axios'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+/**
+ * Função transformer NÃO USADA, pois na geração de páginas
+ * estáticas não é possível passar instâncias de objetos, como "Date".
+ */
 const parseDateProps: AxiosTransformer = (data: any) => {
   if (Array.isArray(data.data)) {
     data.data.forEach((item) => parseDateProps(item))
@@ -19,10 +23,10 @@ const parseDateProps: AxiosTransformer = (data: any) => {
 
 const http = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
-  transformResponse: [
-    ...axios.defaults.transformResponse as [],
-    parseDateProps,
-  ],
+  // transformResponse: [
+  //   ...axios.defaults.transformResponse as [],
+  //   parseDateProps,
+  // ],
 })
 
 export default http
