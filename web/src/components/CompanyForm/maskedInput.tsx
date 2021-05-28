@@ -1,23 +1,43 @@
-import { Field } from 'formik'
+import CurrencyInput from 'react-currency-input-field'
 import MaskedInput from 'react-text-mask'
+import { Field } from 'formik'
 
-type CnpjFieldProps = {
+type MaskedFieldProps = {
   name: string
 }
 
 const cnpjMask = [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/]
 
-function CnpjField({ name }: CnpjFieldProps) {
+function CnpjField({ name }: MaskedFieldProps) {
   return (
-    <Field
-      type="text"
-      name={name}
-    >
+    <Field name={name}>
       {({ field }) => (
-        <MaskedInput mask={cnpjMask} {...field} />
+        <MaskedInput
+          mask={cnpjMask}
+          {...field}
+        />
       )}
     </Field>
   )
 }
 
-export { CnpjField }
+function CurrencyField({ name }: MaskedFieldProps) {
+  return (
+    <Field name={name}>
+      {({ form }) => (
+        <CurrencyInput
+          name={name}
+          allowNegativeValue={false}
+          decimalSeparator=","
+          groupSeparator="."
+          prefix="R$ "
+          onValueChange={(value, fieldName) => {
+            form.setFieldValue(fieldName, value)
+          }}
+        />
+      )}
+    </Field>
+  )
+}
+
+export { CnpjField, CurrencyField }

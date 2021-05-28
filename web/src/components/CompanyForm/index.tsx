@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { useRouter } from 'next/router'
 import { MdSave } from 'react-icons/md'
-import { CnpjField } from './maskedInput'
+import { CnpjField, CurrencyField } from './maskedInput'
 import { numUtils } from '@/utils'
 import { ANNUAL_INCOME_OPTIONS } from '@/types'
 import styles from './styles.module.scss'
@@ -68,7 +68,7 @@ function CompanyForm({ initialState }: CompanyFormProps) {
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="">Demanda:</label>
-              <Field type="text" name="demand" />
+              <CurrencyField name="demand" />
               <ErrorMessage name="demand" component="div" />
             </div>
 
