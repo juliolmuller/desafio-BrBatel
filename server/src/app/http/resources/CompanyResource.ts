@@ -33,15 +33,15 @@ class CompanyResource extends BaseResource<Company> {
       links: {
         show: {
           method: 'get',
-          url: process.env.API_ROOT + companyRoutes.show.replace(':id', String(entity.id)),
+          url: process.env.SERVER_ROOT + companyRoutes.show.replace(':id', String(entity.id)),
         },
         update: {
           method: 'patch',
-          url: process.env.API_ROOT + companyRoutes.update.replace(':id', String(entity.id)),
+          url: process.env.SERVER_ROOT + companyRoutes.update.replace(':id', String(entity.id)),
         },
         destroy: {
           method: 'delete',
-          url: process.env.API_ROOT + companyRoutes.destroy.replace(':id', String(entity.id)),
+          url: process.env.SERVER_ROOT + companyRoutes.destroy.replace(':id', String(entity.id)),
         },
       },
     }
@@ -70,14 +70,14 @@ class CompanyResource extends BaseResource<Company> {
       items_per_page: itemsPerPage,
       total_items: itemsCount,
       total_pages: totalPages,
-      first_page: `${process.env.API_ROOT + companyRoutes.index}?page=1&limit=${itemsPerPage}`,
+      first_page: `${process.env.SERVER_ROOT + companyRoutes.index}?page=1&limit=${itemsPerPage}`,
       previous_page: hasPreviousPage
-        ? `${process.env.API_ROOT + companyRoutes.index}?page=1&limit=${itemsPerPage}`
+        ? `${process.env.SERVER_ROOT + companyRoutes.index}?page=1&limit=${itemsPerPage}`
         : null,
       next_page: hasNextPage
-        ? `${process.env.API_ROOT + companyRoutes.index}?page=1&limit=${itemsPerPage}`
+        ? `${process.env.SERVER_ROOT + companyRoutes.index}?page=1&limit=${itemsPerPage}`
         : null,
-      last_page: `${process.env.API_ROOT + companyRoutes.index}?page=1&limit=${totalPages}`,
+      last_page: `${process.env.SERVER_ROOT + companyRoutes.index}?page=1&limit=${totalPages}`,
       data: this.renderMany(entities),
     }
   }
