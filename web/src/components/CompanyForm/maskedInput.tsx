@@ -24,9 +24,10 @@ function CnpjField({ name }: MaskedFieldProps) {
 function CurrencyField({ name }: MaskedFieldProps) {
   return (
     <Field name={name}>
-      {({ form }) => (
+      {({ field, form }) => (
         <CurrencyInput
           name={name}
+          value={field.value}
           allowNegativeValue={false}
           decimalSeparator=","
           groupSeparator="."

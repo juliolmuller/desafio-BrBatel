@@ -3,7 +3,6 @@ import { CnpjField, CurrencyField } from './maskedInput'
 import { MdSave } from 'react-icons/md'
 import { useRouter } from 'next/router'
 import { useToast } from '@/hooks'
-import { numUtils } from '@/utils'
 import { http } from '@/services'
 import { ANNUAL_INCOME_OPTIONS } from '@/types'
 import styles from './styles.module.scss'
@@ -25,7 +24,7 @@ function CompanyForm({ initialState }: CompanyFormProps) {
     name: initialState?.name ?? '',
     cnpj: initialState?.cnpj ?? '',
     demand: isEditing
-      ? numUtils.displayAsBrazilian(initialState.demand)
+      ? String(initialState.demand)
       : '',
   }
 
