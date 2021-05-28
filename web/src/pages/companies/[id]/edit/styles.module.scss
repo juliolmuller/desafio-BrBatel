@@ -1,0 +1,29 @@
+
+.pageWrapper {
+  max-width: 1080px;
+  margin: 2.5rem auto;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0 1.5rem 2rem;
+
+    h2 {
+      flex-grow: 1;
+
+      button {
+        margin-right: 1rem;
+        border-radius: 50%;
+        border: none;
+
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  main {
+    margin: 0 2rem 5rem;
+  }
+}

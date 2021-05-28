@@ -4,7 +4,13 @@ import CompanyForm from '@/components/CompanyForm'
 import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
 
-function NewCompanyPage() {
+import type { Company } from '@/types'
+
+type EditCompanyDetailsPageProps = {
+  company: Company
+}
+
+function EditCompanyDetailsPage({ company }: EditCompanyDetailsPageProps) {
   const router = useRouter()
 
   function handleCancelForm() {
@@ -16,7 +22,7 @@ function NewCompanyPage() {
   return (
     <div className={styles.pageWrapper}>
       <DocumentHead>
-        <title>BrBate | Cadastrar Nova Empresa</title>
+        <title>BrBate | Atualizar Dados de {company.name}</title>
       </DocumentHead>
 
       <header>
@@ -24,15 +30,21 @@ function NewCompanyPage() {
           <button type="button" onClick={handleCancelForm}>
             <MdArrowBack />
           </button>
-          Cadastrar Nova Empresa
+          {company.name}
         </h2>
       </header>
 
       <main>
-        <CompanyForm />
+        <CompanyForm initialState={company} />
       </main>
     </div>
   )
 }
 
-export default NewCompanyPage
+export default EditCompanyDetailsPage
+
+/**
+ * Repete o processo de geração de páginas estáticas do
+ * componente de visualização dos dados da empresa.
+ */
+export { getStaticPaths, getStaticProps } from '..'
