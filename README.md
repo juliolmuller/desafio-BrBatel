@@ -43,3 +43,17 @@ Para executar a aplicação, é necessário ter instalado na máquina o **Node v
 1. Acesse a pasta com `cd web/`.
 2. Certifique-se de que a variável de ambiente `NEXT_PUBLIC_API_URL` reflete a URL onde o servidor está sendo executado.
 3. Execute o servidor de desenvolvimento para a aplicação React/Next com `npm run dev`
+
+## :rocket: Technologies & Resources
+
+- Runtime: **Node.js**
+- TypeScript (superset JavaScript)
+- Framework para aplicação web: **React.js** e **Next.js**
+- Componentes React: **Formik**, **React Icons** e outros
+- Cliente HTTP: **axios**
+- Banco de dados relacional: **PostgreSQL**
+- SASS/SCSS (processador CSS)
+- Servidor HTTP: **express**
+- Database ORM: **TypeORM**
+- Validação de dados: **yup**
+- ...entre outros utilitários
