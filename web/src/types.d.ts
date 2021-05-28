@@ -1,6 +1,4 @@
 
-export declare type CompaniesIndexLayout = 'cards' | 'list'
-
 export const ANNUAL_INCOME_OPTIONS = [
   'Até R$10 milhões',
   'De R$10 a R$50 milhões',
