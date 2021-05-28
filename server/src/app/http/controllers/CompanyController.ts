@@ -27,20 +27,19 @@ class CompanyController {
       skip: page * limit - limit,
       take: limit,
     }
-
-    const companyRepository = getRepository(Company)
-    const itemsCount = await companyRepository.count()
-    const companies = await companyRepository.find({
+    const query = {
       withDeleted,
-      order: {
-        name: 'ASC',
-      },
       where: [
         { name: ILike(`%${search}%`) },
+        { cnpj: ILike(`%${search}%`) },
         { about: ILike(`%${search}%`) },
       ],
       ...pagination,
-    })
+    }
+
+    const companyRepository = getRepository(Company)
+    const itemsCount = await companyRepository.count(query)
+    const companies = await companyRepository.find(query)
 
     response
       .status(StatusCodes.OK)

@@ -20,9 +20,8 @@ export declare type Company = {
   readonly deleted_at?: Date
 }
 
-export declare interface Pagination {
+export declare type Pagination = {
   current_page: number
-  items_per_page: number
   total_items: number
   total_pages: number
   first_page: string

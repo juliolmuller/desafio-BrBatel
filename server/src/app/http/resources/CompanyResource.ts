@@ -11,7 +11,6 @@ export type CompanyJsonResource = Company & {
 
 export type CompanyJsonResourcePage = {
   current_page: number
-  items_per_page: number
   total_items: number
   total_pages: number
   first_page: string
@@ -62,13 +61,14 @@ class CompanyResource extends BaseResource<Company> {
     entities: Company[],
     { currPage, itemsPerPage, itemsCount }: PaginationMeta,
   ): CompanyJsonResourcePage => {
-    const totalPages = Math.ceil(itemsCount / itemsPerPage)
+    const totalPages = Math.ceil(itemsCount / itemsPerPage) || 1
     const hasNextPage = currPage < totalPages
     const hasPreviousPage = currPage > 1
 
+    console.log(currPage, itemsPerPage, itemsCount)
+
     return {
       current_page: currPage,
-      items_per_page: itemsPerPage,
       total_items: itemsCount,
       total_pages: totalPages,
       first_page: `${process.env.SERVER_ROOT + companyRoutes.index}?page=1&limit=${itemsPerPage}`,
@@ -78,7 +78,7 @@ class CompanyResource extends BaseResource<Company> {
       next_page: hasNextPage
         ? `${process.env.SERVER_ROOT + companyRoutes.index}?page=1&limit=${itemsPerPage}`
         : null,
-      last_page: `${process.env.SERVER_ROOT + companyRoutes.index}?page=1&limit=${totalPages}`,
+      last_page: `${process.env.SERVER_ROOT + companyRoutes.index}?page=${totalPages}&limit=${itemsPerPage}`,
       data: this.renderMany(entities),
     }
   }
