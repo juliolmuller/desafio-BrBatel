@@ -3,11 +3,15 @@ import { http } from '@/services'
 
 import type { Company, Pagination } from '@/types'
 
-interface CompaniesContextInterface {
+type CompaniesIndexLayout = 'cards' | 'list'
+
+type CompaniesContextInterface = {
   isLoading: boolean
   companiesList: Company[]
-  goToPage: (page: number) => void
+  activeLayout: CompaniesIndexLayout
+  setLayout: (layout: CompaniesIndexLayout) => void
   searchCompanies: (search: string) => void
+  goToPage: (page: number) => void
 }
 
 export const CompanyContext = createContext({} as CompaniesContextInterface)
@@ -16,8 +20,10 @@ export function CompanyProvider({ children }) {
   const [isLoading, setLoading] = useState(true)
   const [searchText, setSearchText] = useState('')
   const [paginationMeta, setPaginationMeta] = useState<Pagination>(null)
+  const [activeLayout, setLayout] = useState<CompaniesIndexLayout>('cards')
 
   const companiesList = paginationMeta?.data ?? []
+  console.log(companiesList)
 
   async function goToPage(page: number) {
     setLoading(true)
@@ -49,7 +55,9 @@ export function CompanyProvider({ children }) {
       value={{
         companiesList,
         isLoading,
+        activeLayout,
         searchCompanies,
+        setLayout,
         goToPage,
       }}
     >{children}</CompanyContext.Provider>
