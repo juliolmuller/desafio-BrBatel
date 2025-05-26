@@ -1,7 +1,7 @@
 {
   "name": "@brbatel/monorepo",
   "private": true,
-  "homepage": "https://jlm-happy.vercel.app/",
+  "homepage": "https://brbatel.vercel.app/",
   "scripts": {
     "prepare": "husky",
     "commit": "commit",
