@@ -1,14 +1,10 @@
 {
-  "name": "@desafio-brbatel/monorepo",
+  "name": "@brbatel/monorepo",
   "private": true,
   "license": "MIT",
   "author": "Julio L. Muller",
-  "workspaces": [
-    "server",
-    "web"
-  ],
   "scripts": {
-    "server": "npm run dev --prefix server/",
-    "web": "npm run dev --prefix web/"
+    "server": "pnpm --filter ./server/ run dev",
+    "web": "pnpm --filter ./web/ run dev"
   }
 }
