@@ -1,36 +1,43 @@
 {
-  "name": "@desafio-brbatel/web",
+  "name": "@brbatel/web",
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
   "author": "Julio L. Muller",
   "scripts": {
-    "postinstall": "node -e \"process.env.NODE_ENV === 'production' || require('fs').existsSync('.env') || require('fs').copyFileSync('.env.example', '.env')\"",
-    "dev": "next dev --port 8080",
-    "development": "npm run dev",
+    "postinstall": "node -e \"require('fs').existsSync('.env') || require('fs').copyFileSync('.env.example', '.env')\"",
+    "commit": "cd .. && pnpm run commit",
+    "development": "next dev",
+    "dev": "pnpm run development",
     "build": "next build",
-    "prod": "next start --port 8080",
-    "production": "npm run prod",
-    "lint": "eslint src/ --fix"
+    "production": "next start",
+    "prod": "pnpm run production",
+    "start": "pnpm run production",
+    "lint": "next lint --fix"
   },
   "dependencies": {
-    "axios": "~0.21.1",
-    "formik": "^2.2.8",
-    "next": "^10.2.2",
-    "react": "^17.0.2",
-    "react-currency-input-field": "^3.4.1",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0",
-    "react-text-mask": "^5.4.3",
-    "react-toast-notifications": "^2.4.4"
+    "@tanstack/react-form": "^1.11.3",
+    "@tanstack/react-query": "^5.77.2",
+    "@tanstack/react-query-devtools": "^5.77.2",
+    "axios": "^1.9.0",
+    "next": "^15.3.2",
+    "react": "^19.1.0",
+    "react-currency-input-field": "^3.10.0",
+    "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
+    "react-text-mask": "^5.5.0",
+    "react-toast-notifications": "^2.5.1",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@types/node": "^14.14.31",
-    "@types/react": "^17.0.6",
-    "@types/react-text-mask": "^5.4.7",
-    "eslint": "^7.27.0",
-    "eslint-config-lacussoft": "^2.0.1",
-    "sass": "^1.33.0",
-    "typescript": "^4.2.4"
+    "@next/eslint-plugin-next": "^15.3.2",
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.5",
+    "@types/react-text-mask": "^5.4.14",
+    "eslint": "^9.27.0",
+    "eslint-config-any": "^1.1.0",
+    "prettier": "^3.5.3",
+    "sass": "^1.89.0",
+    "typescript": "^5.8.3"
   }
 }
